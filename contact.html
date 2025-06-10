@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - Vivid Pruning &amp; Irrigation</title>
+<style>
+  :root {
+    --color-bg: #1ca65f; /* tropical green */
+    --color-text: #e6f3e9; /* very light text for readability */
+    --color-headline: #f5fbf7; /* near white for headlines */
+    --color-primary: #daf0d9; /* button background - pale green */
+    --color-accent: #a1e4b0; /* lighter green accent for links */
+    --radius: 0.75rem;
+    --shadow-light: 0 1px 8px rgba(0,0,0,0.15);
+    --shadow-hover: 0 4px 14px rgba(0,0,0,0.25);
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.75;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5 {
+    color: var(--color-headline);
+    margin-top: 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+    max-width: 900px;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #7fcf8f;
+    outline: none;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    padding: 0 1rem 4rem;
+    margin: 0 auto;
+  }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(28,166,95,0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    z-index: 10000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--color-headline);
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--color-headline);
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-primary);
+    color: var(--color-primary);
+    filter: brightness(0.6);
+  }
+  /* Main content */
+  main {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+  section {
+    margin-bottom: 3.5rem;
+  }
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  form {
+    background: rgba(218,240,217,0.15);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    max-width: 700px;
+    color: var(--color-headline);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  input[type="text"],
+  textarea,
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+    border: none;
+    font-size: 1rem;
+    background: rgba(255 255 255 / 0.15);
+    color: var(--color-headline);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    resize: vertical;
+    font-family: var(--font-sans);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(245,251,247,0.7);
+  }
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--color-primary);
+    background: rgba(255 255 255 / 0.25);
+  }
+  button[type="submit"] {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #bce1b4;
+    color: var(--color-bg);
+    transform: scale(1.05);
+    outline: none;
+  }
+  /* Footer */
+  footer {
+    background: rgba(38,96,54,0.9);
+    color: var(--color-bg);
+    padding: 3rem 1rem 4rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer-contact {
+    font-weight: 600;
+  }
+  .footer-contact a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .footer-contact a:hover,
+  .footer-contact a:focus {
+    color: #d0f5bd;
+    outline: none;
+  }
+  /* Responsive */
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    form {
+      padding: 1.5rem;
+    }
+  }
+  /* Accessibility Helpers */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <a href="index.html" class="logo" aria-label="Vivid Pruning and Irrigation Home">VividPrune</a>
+    <div class="nav-links">
+      <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0" aria-current="page">Contact us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container" role="main" aria-labelledby="contact-title">
+  <h1 id="contact-title">Get in Touch with Vivid Pruning &amp; Irrigation</h1>
+  <p>We value your questions, feedback, and inquiries. Whether you want to schedule a service, request a custom quote, or simply learn more about how we can help your garden flourish, you’ve come to the right place. Our dedicated team is here to assist you promptly and professionally.</p>
+  
+  <section aria-labelledby="contact-info-title">
+    <h2 id="contact-info-title">How to Reach Us</h2>
+    <p>You can reach us using the following methods. Choose the option most convenient for you, and we will respond as quickly as possible.</p>
+    <h3>Phone</h3>
+    <p>Our phone lines are open Monday to Friday, 8:00 AM to 6:00 PM EST.</p>
+    <p><strong>Call us at:</strong> <a href="tel:+18883347000">(888) 334-7000</a></p>
+    
+    <h3>Email</h3>
+    <p>Send us an email any time, and we strive to reply within one business day.</p>
+    <p><strong>Email:</strong> <a href="mailto:info@vividprune.com">info@vividprune.com</a></p>
+    
+    <h3>Visit Our Office</h3>
+    <p>We warmly welcome walk-in visitors during business hours or by appointment.</p>
+    <address>
+      <strong>Address:</strong><br />
+      721 Broadway,<br />
+      New York, NY 10003,<br />
+      USA
+    </address>
+  </section>
+
+  <section aria-labelledby="customer-support-title">
+    <h2 id="customer-support-title">Customer Support &amp; Services</h2>
+    <p>Our customer support team is here to help you with:</p>
+    <ul>
+      <li>Scheduling and rescheduling pruning and irrigation services</li>
+      <li>Providing detailed consultations and garden assessments</li>
+      <li>Assisting with billing and payments</li>
+      <li>Answering technical questions about our systems and solutions</li>
+      <li>Handling customer feedback and service improvements</li>
+    </ul>
+    <p>We prioritize your satisfaction and transparency in every interaction to build lasting relationships with our valued clients.</p>
+  </section>
+
+  <section aria-labelledby="contact-form-title">
+    <h2 id="contact-form-title">Send Us a Message</h2>
+    <p>If you prefer, please use the form below to get in touch with us. We encourage you to provide as much detail as possible so that we can assist you effectively.</p>
+    <form action="#" method="post" novalidate aria-describedby="form-instructions">
+      <p id="form-instructions" class="sr-only">All fields marked with an asterisk (*) are required.</p>
+      <label for="full-name">Full Name *</label>
+      <input type="text" id="full-name" name="full-name" required placeholder="Your full name" aria-required="true" />
+
+      <label for="email-address">Email Address *</label>
+      <input type="email" id="email-address" name="email-address" required placeholder="you@example.com" aria-required="true" />
+
+      <label for="phone-number">Phone Number</label>
+      <input type="tel" id="phone-number" name="phone-number" placeholder="(Optional) your phone number" />
+
+      <label for="subject">Subject *</label>
+      <input type="text" id="subject" name="subject" required placeholder="Subject of your message" aria-required="true" />
+
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Write your message here..." aria-required="true"></textarea>
+
+      <button type="submit" aria-label="Submit contact form">Submit</button>
+    </form>
+  </section>
+
+  <section aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently Asked Questions About Contacting Us</h2>
+    <h3>How quickly can I expect a response?</h3>
+    <p>We strive to respond to all inquiries within 24 business hours. For urgent matters, please call us directly.</p>
+    
+    <h3>Can I schedule a consultation through email?</h3>
+    <p>Yes, you can request consultations by email or phone. We will arrange a convenient time to visit your property or provide remote advice.</p>
+    
+    <h3>Do you offer emergency services?</h3>
+    <p>We offer limited emergency pruning and irrigation services. Please contact us by phone for immediate assistance and availability.</p>
+    
+    <h3>Is my personal data safe when I contact you?</h3>
+    <p>Absolutely. Your personal information is handled according to our <a href="privacy.html">Privacy Policy</a> and protected with strict security measures.</p>
+    
+    <h3>Can I request a custom service package?</h3>
+    <p>Definitely! We love tailoring our pruning and irrigation services to your garden’s unique needs. Contact our specialists to discuss your requirements.</p>
+  </section>
+
+  <section aria-labelledby="communication-tips-title">
+    <h2 id="communication-tips-title">Tips for Effective Communication</h2>
+    <p>To help us serve you best, please keep the following in mind when contacting us:</p>
+    <ul>
+      <li>Provide a clear description of your garden needs, including any specific trees or irrigation concerns.</li>
+      <li>Supply accurate contact details to assure prompt follow-up.</li>
+      <li>If applicable, mention preferred dates or time windows for service visits.</li>
+      <li>Note any special access instructions or pet considerations.</li>
+      <li>Be aware of current weather conditions that might affect scheduling.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="our-commitment-title">
+    <h2 id="our-commitment-title">Our Commitment to You</h2>
+    <p>We pledge exceptional service quality, honesty, and transparency in all communications. Our team is continuously trained to listen attentively and provide expert advice. We respect your time and privacy at every step.</p>
+    <p>Customer satisfaction is our highest priority, and we welcome your feedback at any stage of the process.</p>
+    <p>Your inquiries are not just questions to us; they are opportunities to build trust and show our dedication.</p>
+  </section>
+
+  <section aria-labelledby="additional-resources-title">
+    <h2 id="additional-resources-title">Additional Resources</h2>
+    <p>For your convenience, here are some links to pages that may answer many common questions:</p>
+    <ul>
+      <li><a href="index.html#services">Our Services Overview</a></li>
+      <li><a href="pricing.html">Detailed Pricing Information</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="final-note-title">
+    <h2 id="final-note-title">Final Note</h2>
+    <p>Thank you for considering Vivid Pruning &amp; Irrigation. We look forward to assisting you with your garden care needs and helping your outdoor space reach its fullest potential. Please don’t hesitate to get in touch for any questions, large or small.</p>
+    <p>Your green, vibrant garden starts with the right communication — we’re excited to hear from you!</p>
+  </section>
+</main>
+
+<footer aria-label="Contact information" role="contentinfo">
+  <div class="footer-container container">
+    <p class="footer-contact"><strong>Address:</strong> 721 Broadway, New York, NY 10003, USA</p>
+    <p class="footer-contact"><strong>Phone:</strong> <a href="tel:+18883347000" aria-label="Call Vivid Pruning and Irrigation">(888) 334-7000</a></p>
+    <p>© 2024 Vivid Pruning &amp; Irrigation. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

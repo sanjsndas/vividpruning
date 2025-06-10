@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookies Policy - Vivid Pruning &amp; Irrigation</title>
+<style>
+  :root {
+    --color-bg: #1ca65f; /* tropical green */
+    --color-text: #e6f3e9; /* very light text for readability */
+    --color-headline: #f5fbf7; /* near white for headlines */
+    --color-primary: #daf0d9; /* button background - pale green */
+    --color-accent: #a1e4b0; /* lighter green accent for links */
+    --radius: 0.75rem;
+    --shadow-light: 0 1px 8px rgba(0,0,0,0.15);
+    --shadow-hover: 0 4px 14px rgba(0,0,0,0.25);
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.75;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    padding-bottom: 120px; /* space for cookie banner */
+  }
+  h1, h2, h3, h4, h5 {
+    color: var(--color-headline);
+    margin-top: 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  h5 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+    max-width: 900px;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #7fcf8f;
+    outline: none;
+  }
+  /* Container */
+  .container {
+    max-width: 900px;
+    padding: 0 1rem 4rem;
+    margin: 0 auto;
+  }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(28,166,95,0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    z-index: 10000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--color-headline);
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--color-headline);
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-primary);
+    color: var(--color-primary);
+    filter: brightness(0.6);
+  }
+  /* Main content */
+  main {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+  section {
+    margin-bottom: 3.5rem;
+  }
+  ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  /* Footer */
+  footer {
+    background: rgba(38,96,54,0.9);
+    color: var(--color-bg);
+    padding: 3rem 1rem 4rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer-contact {
+    font-weight: 600;
+  }
+  .footer-contact a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .footer-contact a:hover,
+  .footer-contact a:focus {
+    color: #d0f5bd;
+    outline: none;
+  }
+  /* Cookie Banner */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(28,166,95,0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    z-index: 100000;
+    font-size: 16px;
+    color: var(--color-bg);
+  }
+  #cookie-banner p {
+    flex: 1 1 300px;
+    margin: 0;
+  }
+  #cookie-banner button {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1.25rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-width: 100px;
+  }
+  #cookie-banner button:hover,
+  #cookie-banner button:focus {
+    background-color: #bce1b4;
+    outline: none;
+    color: var(--color-bg);
+  }
+  /* Responsive */
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    #cookie-banner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    #cookie-banner p {
+      flex: none;
+    }
+    #cookie-banner button {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+  /* Accessibility Helpers */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <a href="index.html" class="logo" aria-label="Vivid Pruning and Irrigation Home">VividPrune</a>
+    <div class="nav-links">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0" aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+  </nav>
+</header>
+
+<main class="container" role="main" aria-labelledby="cookies-policy-title">
+  <h1 id="cookies-policy-title">Cookies Policy</h1>
+  <p>Effective Date: June 2024</p>
+
+  <section>
+    <h2>Introduction</h2>
+    <p>Welcome to the Cookies Policy of <strong>Vivid Pruning &amp; Irrigation</strong>. This policy explains what cookies are, how we use them on our website, your choices regarding cookies, and how you can manage your cookie preferences. We believe in transparency and want you to understand how your data is collected and used through cookies when you visit our website.</p>
+  </section>
+
+  <section>
+    <h2>What Are Cookies?</h2>
+    <p>Cookies are small text files that are placed on your device (computer, smartphone, or other devices) by websites you visit. They help the website remember your actions and preferences over time, enabling a more personalized and efficient browsing experience.</p>
+    <p>Cookies can be “session cookies” that expire once you close your browser, or “persistent cookies” that remain on your device for a specified period or until you delete them.</p>
+  </section>
+
+  <section>
+    <h2>Types of Cookies We Use</h2>
+    <p>We use several types of cookies on our website, each serving a different purpose:</p>
+    <h3>Essential Cookies</h3>
+    <p>These cookies are necessary for the website to function properly. Without these, basic features like page navigation, security, and form submissions would not work effectively.</p>
+
+    <h3>Performance and Analytics Cookies</h3>
+    <p>These cookies collect information about how visitors use our website, such as pages visited, time spent, and any errors encountered. The data helps us understand website performance and improve user experience. The data is aggregated and anonymized.</p>
+
+    <h3>Functional Cookies</h3>
+    <p>Functional cookies remember choices you make such as language preferences, login details, or region, enhancing your browsing experience by personalizing the website content.</p>
+
+    <h3>Advertising and Tracking Cookies</h3>
+    <p>We use these cookies to deliver advertisements relevant to your interests, measure the effectiveness of our marketing campaigns, and limit the number of times you see an ad. These may be set by us or by third-party advertising partners.</p>
+  </section>
+
+  <section>
+    <h2>How We Use Cookies</h2>
+    <p>Cookies enable us to improve your experience and provide the following benefits:</p>
+    <ul>
+      <li>Remembering your preferences and customizations</li>
+      <li>Keeping you logged in during your session</li>
+      <li>Improving website navigation and performance by analyzing usage patterns</li>
+      <li>Personalizing content and advertising</li>
+      <li>Measuring the effectiveness of our marketing efforts</li>
+      <li>Securing our website and preventing fraud</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Third-Party Cookies</h2>
+    <p>We may also allow trusted third-party service providers to place cookies on your device for analytics, advertising, and social media integration. These third parties operate under their own privacy and cookie policies. Examples include Google Analytics, advertising networks, and social media platforms.</p>
+    <p>Please visit their websites to learn more about their specific cookie practices.</p>
+  </section>
+
+  <section>
+    <h2>Your Choices Regarding Cookies</h2>
+    <p>You have control over how cookies are used on your device, and you may choose to accept or decline cookies. Your choices can be managed via:</p>
+    <ul>
+      <li><strong>Browser Settings:</strong> Most web browsers allow you to control cookies through their settings. You can delete existing cookies, block all cookies, or allow only certain types. Please note that disabling essential cookies may affect website functionality.</li>
+      <li><strong>Cookie Consent Banner:</strong> When you first visit our website, you will be presented with a cookie consent dialog box where you can accept or decline cookies. You can later change your choice by revisiting the site or clearing your browser cookies.</li>
+    </ul>
+    <p>For detailed instructions on managing cookies for popular browsers, you can visit:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer">Mozilla Firefox</a></li>
+      <li><a href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d">Microsoft Edge</a></li>
+      <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac">Safari</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How to Manage Cookies Through Browser Settings</h2>
+    <p>Most browsers provide tools to manage the cookies stored on your device. You can:</p>
+    <ul>
+      <li>Remove specific cookies</li>
+      <li>Block or allow all cookies</li>
+      <li>Block cookies from third parties</li>
+      <li>Clear cookies automatically when you close the browser</li>
+    </ul>
+    <p>Please be aware that blocking or deleting cookies could degrade your experience on our site or limit functionality of certain features.</p>
+  </section>
+
+  <section>
+    <h2>Cookies and Privacy Laws</h2>
+    <p>In compliance with global privacy regulations including the European Union's General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA), we provide this cookie policy to inform you explicitly about our use of cookies and your choices. Consent for non-essential cookies is obtained via the cookie consent dialog on your first visit.</p>
+  </section>
+
+  <section>
+    <h2>What Happens If You Decline Cookies?</h2>
+    <p>If you choose to decline cookies:</p>
+    <ul>
+      <li>Essential cookies needed for site functionality will still be used to ensure basic operation.</li>
+      <li>Non-essential cookies such as analytics, advertising, and personalization cookies will be disabled.</li>
+      <li>Some features or services may not function properly or may be less tailored to your preferences.</li>
+    </ul>
+    <p>Your choice will be saved for your future visits within the limits of your browser’s cookie storage.</p>
+  </section>
+
+  <section>
+    <h2>How We Protect Your Data</h2>
+    <p>We take your privacy and data security seriously. We implement technical and organizational measures, including:</p>
+    <ul>
+      <li>Encrypting data transmissions</li>
+      <li>Restricting data access to authorized personnel</li>
+      <li>Regularly monitoring our systems for vulnerabilities</li>
+    </ul>
+    <p>Cookies themselves do not contain personal information but may be linked to your personal data as collected and processed by our privacy policy.</p>
+  </section>
+
+  <section>
+    <h2>Updates to Our Cookies Policy</h2>
+    <p>We may update this Cookies Policy from time to time to reflect changes in law, technology, or our business practices. When significant revisions are made, a notice will be posted on our website with the updated effective date. Please review this page occasionally to remain informed about how we use cookies.</p>
+  </section>
+
+  <section>
+    <h2>Frequently Asked Questions About Cookies</h2>
+    <h3>Q: What are cookies used for?</h3>
+    <p>A: Cookies help websites remember your preferences and improve your experience. They also help website owners understand how visitors interact with their site.</p>
+    <h3>Q: Can I disable cookies?</h3>
+    <p>A: Yes, you can disable cookies in your browser settings, but this may affect the usability of certain websites.</p>
+    <h3>Q: Do third parties use cookies on this site?</h3>
+    <p>A: Yes, some third-party service providers may place cookies for analytics and advertising purposes.</p>
+    <h3>Q: Are cookies safe?</h3>
+    <p>A: Cookies are generally safe. They do not carry viruses and cannot install malware. However, they do collect information about your browsing habits.</p>
+  </section>
+
+  <section>
+    <h2>Glossary of Common Cookie Terms</h2>
+    <ul>
+      <li><strong>Session Cookies:</strong> Temporary cookies that expire when you close your browser.</li>
+      <li><strong>Persistent Cookies:</strong> Cookies that remain on your device until deleted or expired.</li>
+      <li><strong>First-Party Cookies:</strong> Set by the website you are visiting.</li>
+      <li><strong>Third-Party Cookies:</strong> Set by domains other than the one you are visiting, often for advertising or analytics.</li>
+      <li><strong>Secure Cookies:</strong> Cookies that are only transmitted over secure HTTPS connections.</li>
+      <li><strong>HttpOnly Cookies:</strong> Cookies inaccessible to client-side scripts, providing protection against cross-site scripting attacks.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Cookies Policy or how we use cookies, please contact us:</p>
+    <address>
+      Vivid Pruning &amp; Irrigation<br />
+      721 Broadway, New York, NY 10003, USA<br />
+      Phone: <a href="tel:+18883347000">(888) 334-7000</a><br />
+      Email: <a href="mailto:privacy@vividprune.com">privacy@vividprune.com</a>
+    </address>
+  </section>
+
+  <section>
+    <h2>Additional Information</h2>
+    <p>We encourage all users to review their own cookie settings regularly and to stay informed about how cookies are used across the internet. For more detailed resources, the following organizations provide valuable guides and tools:</p>
+    <ul>
+      <li><a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener">All About Cookies</a></li>
+      <li><a href="https://ico.org.uk/for-the-public/online/cookies/" target="_blank" rel="noopener">UK ICO - Cookies</a></li>
+      <li><a href="https://ec.europa.eu/info/law/law-topic/data-protection_en" target="_blank" rel="noopener">EU GDPR Information</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Summary</h2>
+    <p>Cookies play a vital role in your online experience by enabling essential website functions, personalization, and analytics. By providing this Cookies Policy and a consent banner, we ensure you have full transparency and control over your cookie choices when visiting <strong>Vivid Pruning &amp; Irrigation</strong>.</p>
+    <p>We respect your privacy and encourage you to make informed decisions regarding cookies based on your preferences and needs.</p>
+  </section>
+</main>
+
+<footer aria-label="Contact information" role="contentinfo">
+  <div class="footer-container container">
+    <p class="footer-contact"><strong>Address:</strong> 721 Broadway, New York, NY 10003, USA</p>
+    <p class="footer-contact"><strong>Phone:</strong> <a href="tel:+18883347000" aria-label="Call Vivid Pruning and Irrigation">(888) 334-7000</a></p>
+    <p>© 2024 Vivid Pruning &amp; Irrigation. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent banner" aria-modal="true">
+  <p>We use cookies to enhance your experience, provide personalized content, and analyze our traffic. By clicking "Accept", you consent to our use of cookies. You can choose to decline below or read our <a href="cookies.html" style="color: var(--color-primary); text-decoration: underline;">Cookies Policy</a> for more information.</p>
+  <div>
+    <button id="accept-cookies" type="button" aria-label="Accept cookies">Accept</button>
+    <button id="decline-cookies" type="button" aria-label="Decline cookies">Decline</button>
+  </div>
+</div>
+
+<script>
+  // Cookie banner functionality
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('accept-cookies');
+    var declineBtn = document.getElementById('decline-cookies');
+    var cookieName = 'vividprune_cookie_consent';
+
+    function setCookie(name, value, days) {
+      var expires = '';
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = '; expires=' + date.toUTCString();
+      }
+      document.cookie = name + '=' + (value || '')  + expires + '; path=/; SameSite=Lax';
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + '=';
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    function hideBanner() {
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '0';
+    }
+
+    function showBanner() {
+      banner.style.display = 'flex';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+
+    function hasConsent() {
+      return getCookie(cookieName) === 'accepted' || getCookie(cookieName) === 'declined';
+    }
+
+    function runOnConsent() {
+      // Here you'd initialize analytics or personalization scripts only if consent given
+      // For brevity, no actual scripts here
+      // console.log('Cookies accepted, running scripts.');
+    }
+
+    if (hasConsent()) {
+      hideBanner();
+      if (getCookie(cookieName) === 'accepted') {
+        runOnConsent();
+      }
+    } else {
+      showBanner();
+    }
+
+    acceptBtn.addEventListener('click', function() {
+      setCookie(cookieName, 'accepted', 365);
+      hideBanner();
+      runOnConsent();
+    });
+    declineBtn.addEventListener('click', function() {
+      setCookie(cookieName, 'declined', 365);
+      hideBanner();
+    });
+  })();
+</script>
+
+</body>
+</html>
+

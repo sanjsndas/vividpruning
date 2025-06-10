@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vivid Pruning &amp; Irrigation Services</title>
+<style>
+  :root {
+    --color-bg: #1ca65f; /* tropical green */
+    --color-text: #e6f3e9; /* very light text for readability */
+    --color-headline: #f5fbf7; /* near white for headlines */
+    --color-primary: #daf0d9; /* button background - pale green */
+    --color-accent: #a1e4b0; /* lighter green accent for links */
+    --radius: 0.75rem;
+    --shadow-light: 0 1px 8px rgba(0,0,0,0.15);
+    --shadow-hover: 0 4px 14px rgba(0,0,0,0.25);
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    color: var(--color-headline);
+    margin-top: 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #7fcf8f;
+    outline: none;
+  }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(28,166,95,0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--color-headline);
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--color-headline);
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--color-primary);
+    color: var(--color-primary);
+    filter: brightness(0.6);
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 0.62rem 1.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #bce1b4;
+    color: var(--color-bg);
+    transform: scale(1.03);
+    outline: none;
+  }
+  /* Hero */
+  .hero {
+    padding: 6rem 1rem 5rem;
+    text-align: center;
+  }
+  .hero p {
+    max-width: 700px;
+    margin: 1rem auto 3rem;
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+  .hero img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    margin-top: 2rem;
+    filter: brightness(1.1);
+  }
+  /* Sections */
+  section {
+    padding: 4rem 1rem 5rem;
+  }
+  .section-header {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+  }
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: rgba(218,240,217,0.15);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: var(--color-headline);
+  }
+  .service-card:hover,
+  .service-card:focus-within {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    background: rgba(218,240,217,0.25);
+  }
+  .service-card h3 {
+    margin-top: 0;
+    color: var(--color-headline);
+    margin-bottom: 1rem;
+  }
+  .service-card p {
+    flex-grow: 1;
+    color: var(--color-text);
+  }
+  /* Images in cards */
+  .service-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-light);
+    margin-bottom: 1.25rem;
+    filter: brightness(1.05);
+    transition: filter 0.3s ease;
+  }
+  .service-card:hover .service-image,
+  .service-card:focus-within .service-image {
+    filter: brightness(1.15);
+  }
+  /* Price table */
+  .price-table {
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    width: 100%;
+    color: var(--color-headline);
+  }
+  .price-table th,
+  .price-table td {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    background: rgba(218,240,217,0.25);
+    box-shadow: var(--shadow-light);
+    font-weight: 600;
+  }
+  .price-table th {
+    background: rgba(218,240,217,0.4);
+    font-weight: 700;
+  }
+  .price-table td.price {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  /* Footer */
+  footer {
+    background: rgba(38,96,54,0.9);
+    color: var(--color-bg);
+    padding: 3rem 1rem 4rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer-contact {
+    font-weight: 600;
+  }
+  .footer-contact a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .footer-contact a:hover,
+  .footer-contact a:focus {
+    color: #d0f5bd;
+    outline: none;
+  }
+  .footer-disclaimer {
+    color: #b6d9a5;
+    font-size: 0.85rem;
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
+  }
+  /* Customer satisfaction section */
+  #customer-satisfaction {
+    background: rgba(28,166,95,0.15);
+    padding: 3rem 1rem;
+    color: var(--color-headline);
+  }
+  #customer-satisfaction p, 
+  #customer-satisfaction blockquote {
+    color: var(--color-text);
+  }
+  #customer-satisfaction blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--color-accent);
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+  /* Responsive */
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <a href="#" class="logo" aria-label="Vivid Pruning and Irrigation Home">VividPrune</a>
+    <div class="nav-links">
+     <a href="index.html" tabindex="0" aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+    </div>
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" aria-label="Get a quote">Get a Quote</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" role="banner" aria-label="Welcome to Vivid Pruning and Irrigation Services">
+    <div class="container">
+      <h1>Vivid Pruning &amp; Irrigation Services</h1>
+      <p>Enhancing your garden’s vitality and beauty with expert pruning and efficient irrigation solutions. Bringing life and color back to your outdoor spaces all year round.</p>
+      <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" aria-label="Explore our services">Explore Our Services</button>
+      <img src="p1.png" alt="Professional gardener pruning a lush plant" loading="lazy" />
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="services-title">Our Expert Pruning &amp; Irrigation Services</h2>
+        <p>Our team specializes in delivering comprehensive pruning and irrigation solutions tailored to your garden's unique needs. From trimming to watering system installation, we ensure your plants thrive.</p>
+      </header>
+      <div class="services-grid">
+        <article class="service-card" tabindex="0" aria-label="Tree Pruning Service">
+          <img src="s1.jpg" class="service-image" alt="Tree pruning with professional tools" loading="lazy" />
+          <h3>Tree Pruning</h3>
+          <p>Precision cutting to maintain tree health, safety, and beauty. Our experts remove dead or overgrown branches to promote strong growth and vibrant foliage, reducing disease risks and hazards.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Shrub and Hedge Trimming Service">
+          <img src="s2.jpg" class="service-image" alt="Well-trimmed hedge in a residential garden" loading="lazy" />
+          <h3>Shrub &amp; Hedge Trimming</h3>
+          <p>Shaping and maintaining ornamental shrubs and hedges to define your landscape’s style. Our careful trimming maximizes aesthetics while promoting healthy plant structure and growth.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Irrigation System Installation">
+          <img src="s3.jpg" class="service-image" alt="Installing irrigation system sprinklers" loading="lazy" />
+          <h3>Irrigation System Installation</h3>
+          <p>Custom design and installation of efficient irrigation systems. We use high-quality components to ensure your green space receives optimal watering, saving water and boosting plant health.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Irrigation System Maintenance">
+          <img src="s4.jpg" class="service-image" alt="Maintenance work on irrigation controllers" loading="lazy" />
+          <h3>Irrigation System Maintenance</h3>
+          <p>Regular inspection and servicing of your irrigation system to guarantee consistent performance, prevent leaks, and avoid downtime, ensuring your garden stays lush all seasons.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Winter Pruning">
+          <img src="s5.jpg" class="service-image" alt="Winter pruning on dormant trees" loading="lazy" />
+          <h3>Winter Pruning</h3>
+          <p>Seasonal pruning focused on removing deadwood and preparing plants for a healthy spring. Our expert approach minimizes stress and enhances the structure of your trees and shrubs.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Drip Irrigation Systems">
+          <img src="s6.jpg" class="service-image" alt="Drip irrigation system tubing and emitters installed in soil" loading="lazy" />
+          <h3>Drip Irrigation Systems</h3>
+          <p>Installation of water-saving drip irrigation systems delivering moisture directly to plant roots. Ideal for gardens, flower beds, and vegetable patches to boost efficiency and reduce water waste.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="detailed-info" aria-labelledby="details-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="details-title">Why Choose Vivid Pruning &amp; Irrigation?</h2>
+        <p>We bring decades of professional experience, personalized service, and eco-conscious solutions to help your garden flourish.</p>
+      </header>
+      <article>
+        <h3>Comprehensive Expertise</h3>
+        <p>Our certified arborists and irrigation technicians combine knowledge and skill to provide integrated care. From delicate pruning to technical irrigation setup, we cover all your needs professionally.</p>
+        <h3>Customized Solutions</h3>
+        <p>We tailor pruning and watering strategies according to your garden’s plant species, soil composition, weather patterns, and your preferences to maximize plant health and sustainability.</p>
+        <h3>Eco-Friendly Practices</h3>
+        <p>We prioritize water conservation and plant welfare through the implementation of smart irrigation technology, organic pruning techniques, and minimal chemical usage.</p>
+        <h3>Customer-Centric Service</h3>
+        <p>Our client-focused approach ensures clear communication, timely service, and satisfaction guaranteed. We provide maintenance tips and follow-ups to keep your garden thriving year-round.</p>
+      </article>
+      <article>
+        <h3>Frequently Asked Questions</h3>
+        <h4>What types of plants do you service?</h4>
+        <p>Our team is experienced with a wide variety of trees, shrubs, hedges, flowers, and vegetable gardens. We adapt our pruning and irrigation techniques to suit each plant’s unique needs.</p>
+        <h4>How often should pruning be done?</h4>
+        <p>Typically, pruning is recommended once or twice a year depending on the species, growth rate, and health condition. Our experts can design a customized schedule for optimal results.</p>
+        <h4>Can you help reduce water bills?</h4>
+        <p>Yes, our efficient irrigation systems and water management consulting are designed to optimize water usage without compromising plant health, helping reduce utility costs.</p>
+        <h4>Are your services environmentally friendly?</h4>
+        <p>Absolutely. We use sustainable methods, organic treatments, and modern watering technologies that align with eco-responsible gardening and landscaping practices.</p>
+      </article>
+      <article>
+        <h3>In-Depth Service Descriptions</h3>
+        <p><strong>Tree Pruning:</strong> Selective removal of branches to enhance tree structure, prevent hazards, and stimulate new growth. We carefully consider tree species and health to maximize longevity and safety.</p>
+        <p><strong>Shrub &amp; Hedge Trimming:</strong> Styling shrubs and hedges to maintain shape and vigor, including shaping topiaries and managing dense growth to prevent overcrowding and disease.</p>
+        <p><strong>Irrigation System Installation:</strong> Designing drip, sprinkler, or smart systems tailored to your landscape size and plant water requirements. Installation includes piping, control systems, and programming for efficiency.</p>
+        <p><strong>Irrigation System Maintenance:</strong> Periodic assessments to identify leaks, clogged emitters, or malfunctioning controllers, ensuring uninterrupted watering and system longevity.</p>
+        <p><strong>Winter Pruning:</strong> Careful pruning done during dormancy to prepare plants for active growth in spring. Removing damaged wood to enhance overall health after winter stress.</p>
+        <p><strong>Drip Irrigation Systems:</strong> Precise water delivery systems designed to minimize evaporation and runoff, ideal for gardens that require sustained moisture with minimal water waste.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <header class="section-header">
+        <h2 id="pricing-title">Service Pricing</h2>
+        <p>Transparent pricing to help you budget your garden care needs. Contact us for custom quotes and packages.</p>
+      </header>
+      <table class="price-table" role="table" aria-describedby="pricing-desc">
+        <caption id="pricing-desc" class="sr-only">Pricing for pruning and irrigation services offered by Vivid Pruning &amp; Irrigation</caption>
+        <thead>
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price (Starting At)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tree Pruning</td>
+            <td>Per major tree, includes safety pruning and health assessment</td>
+            <td class="price">$150</td>
+          </tr>
+          <tr>
+            <td>Shrub &amp; Hedge Trimming</td>
+            <td>Per hour, shaping and trimming ornamental plants</td>
+            <td class="price">$60/hr</td>
+          </tr>
+          <tr>
+            <td>Irrigation System Installation</td>
+            <td>Fully customized setup including materials</td>
+            <td class="price">$1200</td>
+          </tr>
+          <tr>
+            <td>Irrigation Maintenance</td>
+            <td>Quarterly system check and repairs</td>
+            <td class="price">$200/quarter</td>
+          </tr>
+          <tr>
+            <td>Winter Pruning</td>
+            <td>Per tree or shrub, preparing for spring growth</td>
+            <td class="price">$100</td>
+          </tr>
+          <tr>
+            <td>Drip Irrigation System</td>
+            <td>Installation and setup for gardens &amp; flower beds</td>
+            <td class="price">$750</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="customer-satisfaction" aria-label="Customer satisfaction" style="background: rgba(28,166,95,0.15); padding: 3rem 1rem;">
+    <div class="container" style="max-width: 900px; text-align: center;">
+      <h2>Customer Satisfaction</h2>
+      <p>We take pride in delivering exceptional service that exceeds expectations. Your satisfaction and your garden’s health are our top priorities. Join hundreds of delighted clients who trust us for their pruning and irrigation needs.</p>
+      <blockquote>
+        “Vivid Pruning &amp; Irrigation transformed my garden into a vibrant oasis. Professional, reliable, and truly experts in their craft.” – Sarah L.
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="disclaimer" aria-label="Disclaimer" style="padding: 2rem 1rem; text-align: center; font-size: 0.85rem; color: #b6d9a5;">
+    <div class="container" style="max-width: 700px; margin: 0 auto;">
+      <p><strong>Disclaimer:</strong> While we strive to provide accurate and helpful information on our website, pruning and irrigation needs can vary greatly depending on individual circumstances. We recommend consulting with our professionals for precise advice tailored to your garden. Prices are subject to change based on scope and location. Vivid Pruning &amp; Irrigation is not liable for any damages caused by improper maintenance or unexpected weather events.</p>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" aria-label="Contact information" role="contentinfo">
+  <div class="footer-container">
+    <p class="footer-contact"><strong>Address:</strong> 721 Broadway, New York, NY 10003, USA</p>
+    <p class="footer-contact"><strong>Phone:</strong> <a href="tel:+18883347000" aria-label="Call Vivid Pruning and Irrigation">(888) 334-7000</a></p>
+    <p>© 2024 Vivid Pruning &amp; Irrigation. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
